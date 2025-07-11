@@ -1,0 +1,171 @@
+Kaggle környezet ellenőrzése...
+
+Python verzió: 3.11.13 (main, Jun 4 2025, 08:57:29) [GCC 11.4.0]
+
+
+Elérhető fájlok:
+
+/kaggle/input/nlp-getting-started/sample_submission.csv
+
+/kaggle/input/nlp-getting-started/train.csv
+
+/kaggle/input/nlp-getting-started/test.csv
+
+✓ Scikit-learn importálva
+
+✓ PyTorch 2.6.0+cu124 - cuda
+
+✓ Transformers importálva
+
+✓ Sentence-transformers importálva
+
+
+✓ Adatok betöltve: /kaggle/input/nlp-getting-started/train.csv
+
+Train shape: (7613, 5)
+
+Test shape: (3263, 4)
+
+Címke eloszlás: {0: 4342, 1: 3271}
+
+Átlagos szöveghossz: 101.0
+
+
+--- TF-IDF Baseline ---
+
+F1-score: 0.8156
+
+precision recall f1-score support
+
+
+0 0.81 0.90 0.85 869
+
+1 0.84 0.71 0.77 654
+
+
+accuracy 0.82 1523
+
+macro avg 0.82 0.81 0.81 1523
+
+weighted avg 0.82 0.82 0.82 1523
+
+
+
+--- Sentence Transformer ---
+
+Embeddings számítása...
+
+
+Batches: 100%
+
+ 191/191 [00:02<00:00, 103.60it/s]
+
+Batches: 100%
+
+ 48/48 [00:00<00:00, 81.36it/s]
+
+
+F1-score: 0.8336
+
+precision recall f1-score support
+
+
+0 0.84 0.88 0.86 869
+
+1 0.83 0.77 0.80 654
+
+
+accuracy 0.83 1523
+
+macro avg 0.83 0.83 0.83 1523
+
+weighted avg 0.83 0.83 0.83 1523
+
+
+Batches: 100%
+
+ 102/102 [00:01<00:00, 96.07it/s]
+
+
+
+--- Transformer Fine-tuning ---
+
+
+tokenizer_config.json: 100%
+
+ 48.0/48.0 [00:00<00:00, 6.66kB/s]
+
+config.json: 100%
+
+ 483/483 [00:00<00:00, 68.7kB/s]
+
+vocab.txt: 100%
+
+ 232k/232k [00:00<00:00, 6.85MB/s]
+
+tokenizer.json: 100%
+
+ 466k/466k [00:00<00:00, 6.52MB/s]
+
+model.safetensors: 100%
+
+ 268M/268M [00:01<00:00, 277MB/s]
+
+
+Some weights of DistilBertForSequenceClassification were not initialized from the model checkpoint at distilbert-base-uncased and are newly initialized: ['classifier.bias', 'classifier.weight', 'pre_classifier.bias', 'pre_classifier.weight']
+
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+
+Map: 100%
+
+ 6090/6090 [00:01<00:00, 6920.37 examples/s]
+
+Map: 100%
+
+ 1523/1523 [00:00<00:00, 10960.49 examples/s]
+
+
+Modell tanítása...
+
+
+[382/382 01:37, Epoch 2/2]
+
+Epoch Training Loss Validation Loss F1
+
+1 No log 0.395547 0.843535
+
+2 No log 0.380362 0.850649
+
+
+F1-score: 0.8506
+
+
+Map: 100%
+
+ 3263/3263 [00:00<00:00, 11152.04 examples/s]
+
+
+
+==================================================
+
+VÉGSŐ EREDMÉNYEK
+
+==================================================
+
+Transformer : 0.8506
+
+Sentence Transformer: 0.8336
+
+TF-IDF : 0.8156
+
+
+Legjobb modell F1: 0.8506
+
+
+Submission fájl elkészítve!
+
+Predikciók: {0: 2015, 1: 1248}
+
+==================================================
+
